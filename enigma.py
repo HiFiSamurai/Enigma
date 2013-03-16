@@ -44,7 +44,8 @@ def sample():
 	eMsg = encrypt(msg, dateKey)
 	dMsg = decrypt(eMsg, dateKey)
 
-	print "Message: " + msg
+	print "Usage: python enigma.py e|d 'A Message'"
+	print "Sample Message: " + msg
 	print "Encrypted: " + eMsg
 	print "Decrypted: " + dMsg
 

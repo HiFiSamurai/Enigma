@@ -1,6 +1,6 @@
 Simple cryptography tool for the encoding and decoding of string arguments.
 
-During encryption, each character is converter to a differnet ASCII value, based on the included keymap (which can be randomly generated via the included map generator script). The character assignment is shifted after each character, based on factor which incorporates the current date (as an integer value), and the sum of a series of floating point value 'gears'.
+During encryption, each character is converter to a different ASCII value, based on the included keymap (which can be randomly generated via the included map generator script). The character assignment is shifted after each character, based on factor which incorporates the current date (as an integer value), and the sum of a series of floating point value 'gears'.
 
 The gears are chosen arbitrarily, but should be selected to ensure the longest period of iterations before they circle around to the same map. This period will be determined by the lowest common multiple of the gear values and the length of the character map (95).
 
