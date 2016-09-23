@@ -1,66 +1,41 @@
-'''
-Created on 2011-10-23
-
-@author: maynard
-'''
 import sys
+from rotor import *
 from map import *
-from datetime import datetime
 
-def encrypt(msg, dateKey):
-	eMsg = ""
-	i = 0
-	for c in msg:
-		x = ord(c)
-		for j in range(len(gears)-1):
-			x += int(gears[j]*i)
-		i += 1
-        	eMsg += charMap[(x + dateKey)% len(charMap)]
+#enigma
+#params:
+#@message: message to encode or decode
+#@ringstellung[]: starting position for each rotor (use 0 index or 1?)
+#@steckerverbindungen[]: 
+class enigma(object):
+    rotors = []
+    def __init__(self, message, ringstellung = []):
+        self.message = message
+        x = 0
+        for x in range(len(ringstellung)):
+            r = rotor(ringstellung[x])
+            self.rotors.append(r)
+            x+=x
 
-	return eMsg
-
-def decrypt(msg, dateKey):
-	dMsg = ""
-	i = 0
-	for c in msg:
-		x = charMap.index(c)
-		for j in range(len(gears)-1):
-			x -= int(gears[j]*i)
-		i += 1
-
-		x -= dateKey
-		while (x<32):
-			x += len(charMap)
-
-	       	dMsg += chr(x)
-
-	return dMsg
-
-def sample():
-	ts = datetime.now()
-	dateKey = ts.month + ts.day + (ts.year % 2000)
-
-	msg = "Namu Amida Butsu"
-	eMsg = encrypt(msg, dateKey)
-	dMsg = decrypt(eMsg, dateKey)
-
-	print "Usage: python enigma.py e|d 'A Message'"
-	print "Sample Message: " + msg
-	print "Encrypted: " + eMsg
-	print "Decrypted: " + dMsg
-
+    def encrypt(msg):
+        eMsg = msg
+        e = enigma("hell", [9,0,20])
+        return eMsg
+        
+    def decrypt():
+        dMsg = msg
+        return dMsg
+        
+#move this to a main.py
 if __name__ == '__main__':
-	if len(sys.argv) < 3 :
-		sample()
-		sys.exit()
+    if len(sys.argv) < 3 :
+        sample()
+        sys.exit()
 
-	msg = sys.argv[2]
+    msg = sys.argv[2]
 
-	ts = datetime.now()
-	dateKey = ts.month + ts.day + (ts.year % 2000)
-
-	if (sys.argv[1] == 'e'):
-		eMsg = encrypt(msg, dateKey)
-	elif (sys.argv[1] == 'd'):
-		eMsg = decrypt(msg, dateKey)
-	print eMsg
+    if (sys.argv[1] == 'e'):
+        eMsg = enigma.encrypt(msg)
+    elif (sys.argv[1] == 'd'):
+        eMsg = enigma.decrypt(msg)
+    print(eMsg)

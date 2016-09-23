@@ -1,0 +1,23 @@
+[JT]20160920 -
+Gear ratios:
+1st=26:1
+2nd=676:1
+3rd=17576:1
+... I think.
+http://enigmaco.de/enigma/enigma.html
+[JT]2016-09-21-00:53 -
+https://www.youtube.com/watch?v=mcX7iO_XCFA&t=10m24s
+Need reflector for decode.
+Machine settings:
+1. The Datum or date.
+2. The Walzenlage or rotor order for that date. For example: IV, I, V. 
+3. The Ringstellung, or ring setting for that date. For example: 23 02 17. 
+4. The Steckerverbindungen or plugging for that date. For example: AR KT MW LC XD EJ ZB UY PS HN. 
+5. The Kenngruppen, or discriminant for that date. For example: TXM.
+http://www.ellsbury.com/enigma3.htm
+-------
+[JT]20160923-03:41:00:
+TODO: 
+-Move main from enigma.py into main.py
+-steckerverbindungen? dont understand this wiring part yet so leaving it.
+-Learn Python
