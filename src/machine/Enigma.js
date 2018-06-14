@@ -5,12 +5,12 @@ class Enigma {
     this.rotors = [
       new Rotor({ ratio: 2.25, start: 4 }),
       new Rotor({ ratio: 3.1, start: 6 }),
-      new Rotor({ ratio: 4, start: 7 }),
+      new Rotor({ ratio: 4.737, start: 7 }),
     ];
   }
 
-  reset(offset = 0) {
-    this.rotors.forEach((rotor) => { rotor.reset(offset); });
+  reset() {
+    this.rotors.forEach((rotor) => { rotor.reset(); });
   }
 
   encode(str) {

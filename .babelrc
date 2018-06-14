@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "transform-custom-element-classes",
     "transform-runtime"
   ],
   "presets": ["babel-preset-env"]
