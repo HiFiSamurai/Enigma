@@ -11,6 +11,10 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
+      include: [
+        path.resolve(__dirname, 'src/javascript'),
+        path.resolve(__dirname, 'node_modules/@HiFiSamurai/ui-toolkit'),
+      ],
       use: [{
         loader: 'babel-loader',
         options: { cacheDirectory: true },

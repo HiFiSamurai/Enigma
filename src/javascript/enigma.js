@@ -9,8 +9,8 @@ class Enigma {
     ];
   }
 
-  reset() {
-    this.rotors.forEach((rotor) => { rotor.reset(); });
+  reset(offset = 0) {
+    this.rotors.forEach((rotor) => { rotor.reset(offset); });
   }
 
   encode(str) {
@@ -21,10 +21,10 @@ class Enigma {
   }
 
   decode(str) {
-    this.reset();
-    return Array.from(str).map((char) => {
-      return this.rotors.reduce((result, rotor) => rotor.decode(result), char);
-    }).join('');
+    this.reset(str.length - 1);
+    return Array.from(str).reverse().map((char) => {
+      return this.rotors.reverse().reduce((result, rotor) => rotor.decode(result), char);
+    }).reverse().join('');
   }
 }
 

@@ -9,5 +9,5 @@ console.log('Test String: ' + testStr);
 const encoded = enigma.encode(testStr);
 console.log('Encoded: ' + encoded);
 
-const encoded2 = enigma.encode(testStr);
-console.log('Re-Encoded: ' + encoded2);
+const decoded = enigma.decode(encoded);
+console.log('Decoded: ' + decoded);
