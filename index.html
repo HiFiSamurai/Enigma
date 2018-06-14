@@ -8,6 +8,24 @@
         <title>Enigma</title>
     </head>
     <body>
+        <div class="text-wrapper">
+          <h4>Input</h4>
+          <input name="inputText" id="inputText" type="text">
+          <button id="submitTrigger">Submit</button>
+        </div>
+        <div class="text-wrapper">
+          <h4>Output</h4>
+          <div id="outputText"></div>
+        </div>
+          <label>
+            <input type="radio" name="type" value="encode" checked>
+            <span>Encode</span>
+          </label>
+          <label>
+            <input type="radio" name="type" value="decode">
+            <span>Decode</span>
+          </label>
+        <div>
         <script src="dist/app.js"></script>
     </body>
 </html

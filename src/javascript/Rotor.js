@@ -5,12 +5,11 @@ const MAP_LENGTH = CHAR_MAP.length;
 class Rotor {
   constructor({ ratio, start = 0 }) {
     this.ratio = ratio;
-    this._start = start;
-    this.reset();
+    this.start = start;
   }
 
   reset(offset = 0) {
-    this.position = this._start + offset;
+    this.position = this.start + offset;
   }
 
   encode(char) {
@@ -21,7 +20,7 @@ class Rotor {
 
   decode(char) {
     const pos = (this.getIndex(char) + MAP_LENGTH - parseInt(this.position * this.ratio)) % MAP_LENGTH;
-    this.position--;
+    this.position++;
     return CHAR_MAP[pos];
   }
 

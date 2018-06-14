@@ -21,10 +21,10 @@ class Enigma {
   }
 
   decode(str) {
-    this.reset(str.length - 1);
-    return Array.from(str).reverse().map((char) => {
-      return this.rotors.reverse().reduce((result, rotor) => rotor.decode(result), char);
-    }).reverse().join('');
+    this.reset();
+    return Array.from(str).map((char) => {
+      return this.rotors.reduce((result, rotor) => rotor.decode(result), char);
+    }).join('');
   }
 }
 

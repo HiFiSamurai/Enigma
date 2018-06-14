@@ -1,13 +1,10 @@
 import Enigma from './Enigma';
 
 const enigma = new Enigma();
-window.enigma = enigma;
 
-const testStr = 'Something';
-console.log('Test String: ' + testStr);
-
-const encoded = enigma.encode(testStr);
-console.log('Encoded: ' + encoded);
-
-const decoded = enigma.decode(encoded);
-console.log('Decoded: ' + decoded);
+document.querySelector('#submitTrigger').addEventListener('click', () => {
+  const inputText = document.querySelector('#inputText').value;
+  const mode = document.querySelector('input[type=radio][name=type]:checked').value;
+  const outputText = enigma[mode](inputText);
+  document.querySelector('#outputText').innerHTML = outputText;
+});
