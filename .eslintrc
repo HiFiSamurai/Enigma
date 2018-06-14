@@ -1,0 +1,15 @@
+{
+    root: true,
+    extends: 'standard',
+    env: {
+        browser: true,
+    },
+    globals: {},
+    rules: {
+        semi: ['error', 'always'],
+        'space-before-function-paren': 0,
+        indent: ['error', 2],
+        'comma-dangle': ['error', 'always-multiline'],
+        'brace-style': 0
+    }
+}
