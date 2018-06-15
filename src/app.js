@@ -13,7 +13,7 @@ class App extends View {
   connectedCallback() {
     this.querySelector('#submitTrigger').addEventListener('click', () => {
       const inputText = this.querySelector('#inputText').value;
-      const mode = this.querySelector('input[type=radio][name=type]:checked').value;
+      const mode = this.querySelector('#machineMode').checked ? 'decode' : 'encode';
       const outputText = enigma[mode](inputText);
       this.querySelector('#outputText').innerHTML = outputText;
     });

@@ -6,16 +6,18 @@
   </div>
   <div class="text-wrapper">
     <h4>Output</h4>
-    <p id="outputText">&nbsp;</p>
+    <div class="index-card">
+      <p id="outputText" class="index-content"></p>
+    </div>
   </div>
   <div class="text-wrapper">
-    <label>
-      <input type="radio" name="type" value="encode" checked>
-      <span>Encode</span>
+    <label class="mode-toggle">
+      <input id="machineMode" type="checkbox" name="mode"/>
+      <div>
+        <span class="on">Decode</span>
+        <span class="off">Encode</span>
+      </div>
+      <i></i>
     </label>
-    <label>
-      <input type="radio" name="type" value="decode">
-      <span>Decode</span>
-    </label>
-  <div>
+  </div>
 </template>
