@@ -4,7 +4,7 @@ const CHAR_MAP = Array.apply(null, Array('z'.charCodeAt(0)))
   .concat([' ']);
 
 class Rotor {
-  constructor({ ratio, start = 0 }) {
+  constructor({ ratio = 1, start = 0 }) {
     this.ratio = ratio;
     this.start = start;
   }
@@ -14,15 +14,19 @@ class Rotor {
   }
 
   encode(char) {
-    const pos = (this.getIndex(char) + this.offset) % CHAR_MAP.length;
-    this.position++;
-    return CHAR_MAP[pos];
+    this.step();
+    const pos = this.getIndex(char) + Math.round(this.position);
+    return this.getCharacter(pos);
   }
 
   decode(char) {
-    const pos = (this.getIndex(char) + CHAR_MAP.length - this.offset) % CHAR_MAP.length;
-    this.position++;
-    return CHAR_MAP[pos];
+    this.step();
+    const pos = this.getIndex(char) - Math.round(this.position);
+    return this.getCharacter(pos);
+  }
+
+  step() {
+    this.position += this.ratio;
   }
 
   getIndex(char) {
@@ -31,8 +35,8 @@ class Rotor {
     return index;
   }
 
-  get offset() {
-    return parseInt(this.position * this.ratio);
+  getCharacter(pos) {
+    return CHAR_MAP[(pos + CHAR_MAP.length) % CHAR_MAP.length];
   }
 }
 
