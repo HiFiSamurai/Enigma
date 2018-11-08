@@ -9,24 +9,24 @@ class View extends HTMLElement {
   constructor() {
     super();
 
-    if (!this.constructor.html) { return; }
-
-    const template = new DOMParser().parseFromString(this.constructor.html, 'text/html');
-    const content = document.importNode(template.head.firstChild.content, true);
     this.attachShadow({ mode: 'open' });
 
-    if (this.constructor.styles) {
-      const style = document.createElement('style');
-      style.type = 'text/css';
-      style.appendChild(document.createTextNode(this.constructor.styles.toString()));
-      this.shadowRoot.appendChild(style);
-    }
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode((this.constructor.styles || '').toString()));
+    this.shadowRoot.appendChild(style);
 
-    this.shadowRoot.appendChild(content);
+    const slots = new DOMParser().parseFromString(this.constructor.slots || '', 'text/html').body;
+    Array.from(slots.children).forEach((child) => { this.appendChild(child); });
+
+    const shadow = new DOMParser().parseFromString(this.constructor.shadow || '', 'text/html');
+    Array.from(shadow.children).forEach((child) => { this.shadowRoot.appendChild(child); });
   }
 
-  querySelector(selector) {
-    return this.shadowRoot.querySelector(selector);
+  set slots(map) {
+    Object.entries(map).map(([key, value]) => {
+      this.querySelector(`[slot=${key}]`).textContent = value;
+    });
   }
 }
 

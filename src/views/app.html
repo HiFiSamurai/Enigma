@@ -1,16 +1,17 @@
-<template data-component="app">
-  <div class="text-wrapper">
+<div class="text-wrapper">
     <h4>Input</h4>
     <input name="inputText" id="inputText" type="text">
     <button id="submitTrigger">Submit</button>
-  </div>
-  <div class="text-wrapper">
+</div>
+
+<div class="text-wrapper">
     <h4>Output</h4>
     <div class="index-card">
-      <p id="outputText" class="index-content"></p>
+      <slot name="output-text" class="index-content"></slot>
     </div>
-  </div>
-  <div class="text-wrapper">
+</div>
+
+<div class="text-wrapper">
     <label class="mode-toggle">
       <input id="machineMode" type="checkbox" name="mode"/>
       <div>
@@ -19,5 +20,4 @@
       </div>
       <i></i>
     </label>
-  </div>
-</template>
+</div>

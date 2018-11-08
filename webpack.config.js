@@ -3,14 +3,14 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: ['babel-polyfill', './src/app.js'],
+    app: ['@babel/polyfill', './src/app.js'],
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, './dist'),
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       include: [
         path.resolve(__dirname, 'src'),
