@@ -1,5 +1,5 @@
 import View from './test/View';
-import shadow from './views/app.html';
+import shadow from './views/shadow.html';
 import slots from './views/slots.html';
 import styles from './app.scss';
 
@@ -24,8 +24,8 @@ class App extends View {
 
   get settings() {
     return {
-      input: this.shadowRoot.querySelector('#inputText').value,
-      mode: this.shadowRoot.querySelector('#machineMode').checked ? 'decode' : 'encode',
+      input: this.shadowRoot.querySelector('#input').value,
+      mode: this.shadowRoot.querySelector('#mode').checked ? 'decode' : 'encode',
     };
   }
 }

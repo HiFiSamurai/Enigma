@@ -1,25 +1,37 @@
-@import url('https://fonts.googleapis.com/css?family=Special+Elite');
 @import '@HiFiSamurai/ui-toolkit/dist/sass/helpers';
+
+* {
+  font-family: 'Special Elite', cursive;
+}
 
 .text-wrapper {
   padding: $mediumSpacing;
 }
 
-.index-card {
-  font-family: 'Special Elite', cursive;
-  background-image: linear-gradient(180deg, #FFC calc(1rem + 8px), #F0A4A4 calc(1rem), #F0A4A4 calc(2rem + -6px), transparent 1px), repeating-linear-gradient(0deg, transparent, transparent 1rem, #DDD 1px, #DDD calc(1rem + 1px));
-  background-color: #FFC;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-  height: 10rem;
-  min-width: 400px;
-  display: table;
-  padding: 0 $mediumSpacing;
+.text-input {
+  padding: $smallSpacing;
+  border-radius: $smallSpacing;
+}
 
-  .index-content {
-    text-align: center;
-    padding-top: 3rem;
-    font-size: 4rem;
-    margin: 0;
+.submit-trigger {
+  background: linear-gradient(to bottom, #8B8C8E 20%, #F4F4F4);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+  border-radius: 40px;
+  height: 40px;
+  padding: 0 $mediumSpacing;
+  margin-top: $mediumSpacing;
+  color: #FFF;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition-property: box-shadow, transform;
+  transition-delay: $transitionSubtle;
+
+  &:active {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.7);
+    transform: translateY(2px);
   }
 }
 
@@ -27,6 +39,7 @@
   display: block;
   width: 125px;
   height: 40px;
+  margin-top: $mediumSpacing;
   border-radius: 40px;
   background: linear-gradient(to bottom, #9E9E9E 30%, #F4F4F4);
   box-shadow: 0 2px 0 0 #FFF, 0 -2px 0 0 #969494;
@@ -136,7 +149,6 @@
 
   .on,
   .off {
-    font-family: 'Special Elite', cursive;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -155,5 +167,22 @@
 
   .off {
     right: 15px;
+  }
+}
+
+.index-card {
+  background-image: linear-gradient(180deg, #FFC calc(1rem + 8px), #F0A4A4 calc(1rem), #F0A4A4 calc(2rem + -6px), transparent 1px), repeating-linear-gradient(0deg, transparent, transparent 1rem, #DDD 1px, #DDD calc(1rem + 1px));
+  background-color: #FFC;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  height: 10rem;
+  min-width: 400px;
+  display: table;
+  padding: 0 $mediumSpacing;
+
+  .index-content {
+    text-align: center;
+    padding-top: 3rem;
+    font-size: 4rem;
+    margin: 0;
   }
 }

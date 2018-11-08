@@ -23,16 +23,20 @@ class Enigma {
 
   encode(str) {
     this.reset();
-    return Array.from(str).map((char) => {
-      return this.rotors.reduce((result, rotor) => rotor.encode(result), this.patchboard(char));
-    }).join('');
+    return Array.from(str).map((char) => this.encodeChar(char)).join('');
+  }
+
+  encodeChar(char) {
+    return this.rotors.reduce((result, rotor) => rotor.encode(result), this.patchboard(char));
   }
 
   decode(str) {
     this.reset();
-    return Array.from(str).map((char) => {
-      return this.patchboard(this.rotors.reduce((result, rotor) => rotor.decode(result), char));
-    }).join('');
+    return Array.from(str).map((char) => this.decodeChar(char)).join('');
+  }
+
+  decodeChar(char) {
+    return this.patchboard(this.rotors.reduce((result, rotor) => rotor.decode(result), char));
   }
 
   patchboard(char) {
