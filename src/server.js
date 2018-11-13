@@ -9,4 +9,4 @@ app.use('/dist', express.static('dist'));
 
 const SERVER_PORT = 9000;
 app.listen(SERVER_PORT);
-console.log(`Server started at on http://localhost:${SERVER_PORT}`);
+console.log(`Server started at on http://localhost:${SERVER_PORT}`); // eslint-disable-line

@@ -1,6 +1,8 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: {
     app: ['@babel/polyfill', './src/app.js'],
@@ -26,23 +28,29 @@ module.exports = {
     }, {
       test: /\.s*css$/,
       use: [
+        MiniCssExtractPlugin.loader,
         'css-loader',
         {
           loader: 'postcss-loader',
           options: {
             plugins: () => [autoprefixer()],
           },
-        },
-        {
+        }, {
           loader: 'sass-loader',
           options: {
-            includePaths: [path.resolve(__dirname, 'node_modules')],
+            includePaths: [path.resolve(__dirname, './node_modules')],
           },
         },
       ],
     }],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'app.css',
+    }),
+  ],
   resolve: {
     modules: [__dirname, 'node_modules'],
   },
+  stats: 'minimal',
 };

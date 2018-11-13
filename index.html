@@ -5,10 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="favicon.png"/>
         <title>Enigma</title>
-        <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+        <link href="dist/app.css" rel="stylesheet">
     </head>
     <body>
-        <enigma-app></enigma-app>
+        <enigma-app>
+          <div class="text-wrapper">
+            <h4>Input</h4>
+            <input name="input" id="input" type="text" class="text-input">
+
+            <label class="mode-toggle">
+              <input id="mode" type="checkbox" name="mode"/>
+              <div>
+                <span class="on">Decode</span>
+                <span class="off">Encode</span>
+              </div>
+              <i></i>
+            </label>
+
+            <button id="submitTrigger" class="submit-trigger">Submit</button>
+          </div>
+
+          <div class="text-wrapper">
+            <h4>Output</h4>
+            <div class="index-card">
+              <p id="output" class="index-content"></p>
+            </div>
+          </div>
+        </enigma-app>
         <script src="dist/app.js"></script>
     </body>
 </html>
