@@ -1,6 +1,5 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -9,7 +8,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [{
@@ -46,11 +45,8 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'app.css',
+      filename: '[name].css',
     }),
   ],
-  resolve: {
-    modules: [__dirname, 'node_modules'],
-  },
   stats: 'minimal',
 };
