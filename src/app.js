@@ -1,3 +1,4 @@
+import '@webcomponents/webcomponentsjs';
 import {memoize} from '@HiFiSamurai/ui-toolkit';
 import Enigma from './machine/Enigma';
 import './app.scss';
