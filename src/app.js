@@ -5,9 +5,9 @@ import './app.scss';
 
 class App extends HTMLElement {
   connectedCallback() {
-    this.querySelector('#submitTrigger').addEventListener('click', () => {
+    this.querySelector('.js-submit').addEventListener('click', () => {
       const settings = this.settings;
-      this.querySelector('#output').textContent = this.machine[settings.mode](settings.input);
+      this.querySelector('.js-output').textContent = this.machine[settings.mode](settings.input);
     });
   }
 
@@ -18,8 +18,8 @@ class App extends HTMLElement {
 
   get settings() {
     return {
-      input: this.querySelector('#input').value,
-      mode: this.querySelector('#mode').checked ? 'decode' : 'encode',
+      input: this.querySelector('.js-input').value,
+      mode: this.querySelector('.js-mode').checked ? 'decode' : 'encode',
     };
   }
 }

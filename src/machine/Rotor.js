@@ -14,14 +14,14 @@ class Rotor {
   }
 
   encode(char) {
-    this.step();
     const pos = this.getIndex(char) + Math.round(this.position);
+    this.step();
     return this.getCharacter(pos);
   }
 
   decode(char) {
-    this.step();
     const pos = this.getIndex(char) - Math.round(this.position);
+    this.step();
     return this.getCharacter(pos);
   }
 

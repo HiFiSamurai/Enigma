@@ -5,8 +5,15 @@
   font-family: 'Special Elite', cursive;
 }
 
-.text-wrapper {
+enigma-app {
+  @include media(tablet) {
+    display: flex;
+  }
+}
+
+.section-wrapper {
   padding: $mediumSpacing;
+  flex-grow: 1;
 }
 
 .text-input {
@@ -19,7 +26,7 @@
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
   border-radius: 40px;
   height: 40px;
-  padding: 0 $mediumSpacing;
+  padding: 0 $largeSpacing;
   margin-top: $mediumSpacing;
   color: #FFF;
   letter-spacing: 1px;

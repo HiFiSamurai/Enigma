@@ -9,12 +9,12 @@
     </head>
     <body>
         <enigma-app>
-          <div class="text-wrapper">
+          <div class="section-wrapper">
             <h4>Input</h4>
-            <input name="input" id="input" type="text" class="text-input">
+            <input name="input" type="text" class="text-input js-input">
 
             <label class="mode-toggle">
-              <input id="mode" type="checkbox" name="mode"/>
+              <input type="checkbox" name="mode" class="js-mode"/>
               <div>
                 <span class="on">Decode</span>
                 <span class="off">Encode</span>
@@ -22,13 +22,13 @@
               <i></i>
             </label>
 
-            <button id="submitTrigger" class="submit-trigger">Submit</button>
+            <button class="submit-trigger js-submit">Submit</button>
           </div>
 
-          <div class="text-wrapper">
+          <div class="section-wrapper">
             <h4>Output</h4>
             <div class="index-card">
-              <p id="output" class="index-content"></p>
+              <p class="index-content js-output"></p>
             </div>
           </div>
         </enigma-app>

@@ -5,5 +5,7 @@ module.exports = {
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     '@babel/plugin-proposal-class-properties',
   ],
-  presets: ['@babel/preset-env'],
+  presets: [
+    ['@babel/preset-env', { useBuiltIns: 'usage' }],
+  ],
 };
