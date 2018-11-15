@@ -1,9 +1,12 @@
-import '@webcomponents/webcomponentsjs';
-import {memoize} from '@HiFiSamurai/ui-toolkit';
+import {View, memoize} from '@HiFiSamurai/ui-toolkit';
 import Enigma from './machine/Enigma';
+import html from './app.html';
 import './app.scss';
 
-class App extends HTMLElement {
+class App extends View {
+  static tag = 'enigma-app';
+  static html = html;
+
   connectedCallback() {
     this.querySelector('.js-submit').addEventListener('click', () => {
       const settings = this.settings;
@@ -24,4 +27,4 @@ class App extends HTMLElement {
   }
 }
 
-customElements.define('enigma-app', App);
+App.wrapped();
