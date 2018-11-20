@@ -1,0 +1,25 @@
+@import 'src/helpers';
+
+enigma-rotor {
+  display: block;
+  margin-top: $mediumSpacing;
+
+  .control-row {
+    display: flex;
+
+    .slider-label {
+      flex-basis: 30px;
+      margin: 0 $smallSpacing;
+      align-self: center;
+      text-align: right;
+    }
+
+    .slider-input {
+      flex-grow: 1;
+
+      + .slider-input {
+        margin-left: $mediumSpacing;
+      }
+    }
+  }
+}

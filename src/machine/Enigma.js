@@ -1,20 +1,7 @@
-import Rotor from './Rotor';
-import Patch from './Patch';
-
 class Enigma {
-  constructor() {
-    this.rotors = [
-      new Rotor({ ratio: 2.25, start: 4 }),
-      new Rotor({ ratio: 3.1, start: 6 }),
-      new Rotor({ ratio: 4.737, start: 7 }),
-    ];
-
-    this.patches = [
-      new Patch({ entry: 'a', exit: 'f' }),
-      new Patch({ entry: 'j', exit: 'd' }),
-      new Patch({ entry: 'g', exit: 's' }),
-      new Patch({ entry: 'w', exit: 'q' }),
-    ];
+  constructor({rotors = [], patches = []}) {
+    this.rotors = rotors;
+    this.patches = patches;
   }
 
   reset() {

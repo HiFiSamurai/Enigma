@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
-@import '@HiFiSamurai/ui-toolkit/dist/sass/helpers';
+@import 'helpers';
 
 * {
   font-family: 'Special Elite', cursive;
 }
 
 enigma-app {
+  display: block;
+
   @include media(tablet) {
     display: flex;
   }
@@ -14,6 +16,10 @@ enigma-app {
 .section-wrapper {
   padding: $mediumSpacing;
   flex-grow: 1;
+}
+
+.box-heading {
+  margin-top: 0;
 }
 
 .text-input {
@@ -31,15 +37,21 @@ enigma-app {
   color: #FFF;
   letter-spacing: 1px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+  opacity: 1;
   outline: none;
   border: none;
   cursor: pointer;
-  transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform, opacity;
   transition-delay: $transitionSubtle;
 
   &:active {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.7);
     transform: translateY(2px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
   }
 }
 
@@ -184,7 +196,6 @@ enigma-app {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   height: 10rem;
   min-width: 400px;
-  display: table;
   padding: 0 $mediumSpacing;
 
   .index-content {
@@ -193,4 +204,12 @@ enigma-app {
     font-size: 4rem;
     margin: 0;
   }
+}
+
+.rotor-box {
+  padding: $mediumSpacing;
+  border: 1px solid #9E9E9E;
+  margin-top: $mediumSpacing;
+  border-radius: $borderRadius;
+  box-shadow: 1px 1px 1px 1px #9E9E9E;
 }
