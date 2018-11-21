@@ -1,6 +1,17 @@
-<div class="control-row">
-  <span class="slider-label" label="ratio">5</span>
-  <input type="range" min="1" max="10" step="0.1" class="js-slider slider-input" list="tickmarks" name="ratio">
-  <input type="range" min="1" max="10" step="1" class="js-slider slider-input" list="tickmarks" name="start">
-  <span class="slider-label" label="start">2</span>
+<div class="gear-box">
+  <svg class="gear">
+    <use xlink:href="#icon-gear"></use>
+  </svg>
+</div>
+
+<div class="settings">
+  <div class="control-row">
+    <input type="range" min="1" max="5" step="0.1" class="js-slider slider-input" list="tickmarks" name="ratio">
+    <span class="slider-label" label="ratio"></span>
+  </div>
+
+  <div class="control-row">
+    <input type="range" min="0" max="10" step="1" class="js-slider slider-input" list="tickmarks" name="start">
+    <span class="slider-label" label="start"></span>
+  </div>
 </div>

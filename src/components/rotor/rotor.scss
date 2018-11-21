@@ -1,24 +1,41 @@
 @import 'src/helpers';
 
 enigma-rotor {
-  display: block;
-  margin-top: $mediumSpacing;
+  --start: 0;
+  --ratio: 1;
 
-  .control-row {
-    display: flex;
+  display: flex;
+  padding: $smallSpacing;
 
-    .slider-label {
-      flex-basis: 30px;
-      margin: 0 $smallSpacing;
-      align-self: center;
-      text-align: right;
+  .gear-box {
+    flex-basis: 80px;
+    position: relative;
+
+    .gear {
+      max-width: 100%;
+      max-height: 100%;
+      position: absolute;
+      transition: transform $transitionSubtle;
+      transform: rotate(var(--start)) scale(var(--ratio));
     }
+  }
 
-    .slider-input {
-      flex-grow: 1;
+  .settings {
+    flex-grow: 1;
+    padding: $mediumSpacing;
 
-      + .slider-input {
-        margin-left: $mediumSpacing;
+    .control-row {
+      display: flex;
+
+      .slider-input {
+        flex-grow: 1;
+      }
+
+      .slider-label {
+        width: 30px;
+        margin: 0 $smallSpacing;
+        align-self: center;
+        text-align: right;
       }
     }
   }

@@ -21,6 +21,17 @@ class Rotor extends View {
 
   updateLabel(slider) {
     this.querySelector(`[label=${slider.name}]`).textContent = slider.value;
+    this.updateGear();
+  }
+
+  updateGear() {
+    this.style.setProperty('--start', `${this.sliderScale('start') * 360}deg`);
+    this.style.setProperty('--ratio', this.sliderScale('ratio'));
+  }
+
+  sliderScale(name) {
+    const slider = this.querySelector(`.js-slider[name=${name}]`);
+    return (slider.value - slider.min) / (slider.max - slider.min);
   }
 }
 

@@ -6,6 +6,7 @@ import Patch from './machine/Patch';
 
 import html from './app.html';
 import './app.scss';
+import './icons';
 
 const KEYCODES = {
   ENTER: 13,
@@ -43,9 +44,9 @@ class App extends View {
   get machine() {
     return new Enigma({
       rotors: [
-        new Rotor({ ratio: 2.25, start: 4 }),
-        new Rotor({ ratio: 3.1, start: 6 }),
-        new Rotor({ ratio: 4.737, start: 7 }),
+        new Rotor({ ratio: 2.25, start: 3 }),
+        new Rotor({ ratio: 3.1, start: 1 }),
+        new Rotor({ ratio: 4.737, start: 4 }),
       ],
       patches: [
         new Patch({ entry: 'a', exit: 'f' }),

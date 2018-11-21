@@ -36,5 +36,8 @@
     "uglify-js": "^3.4.9",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "svg-sprite-loader": "^4.1.3"
   }
 }
