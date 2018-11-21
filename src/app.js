@@ -1,8 +1,8 @@
 import {View, memoize} from '@HiFiSamurai/ui-toolkit';
-import Enigma from './machine/Enigma';
-import RotorComponent from './components/Rotor';
-import Rotor from './machine/Rotor';
-import Patch from './machine/Patch';
+import Enigma from 'src/machine/Enigma';
+import RotorComponent from 'src/components/Rotor';
+import Rotor from 'src/machine/Rotor';
+import Patch from 'src/machine/Patch';
 
 import html from './app.html';
 import './app.scss';

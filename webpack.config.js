@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -9,6 +10,19 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    modules: [__dirname, 'node_modules'],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/].*\.js$/,
+        },
+      },
+    },
   },
   module: {
     rules: [{
@@ -54,6 +68,15 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Electioneering',
+      favicon: 'favicon.png',
+      template: 'index.html',
+      meta: {
+        'content-type': 'text-html; charset=utf-8',
+        viewport: 'width=device-width, initial-scale=1',
+      },
     }),
   ],
   stats: 'minimal',
