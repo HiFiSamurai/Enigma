@@ -70,7 +70,7 @@ module.exports = {
       filename: '[name].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
-      title: 'Electioneering',
+      title: 'Enigma',
       favicon: 'favicon.png',
       template: 'index.html',
       meta: {
