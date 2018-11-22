@@ -1,21 +1,25 @@
 <div class="section-wrapper">
   <h3>Input</h3>
-  <input name="input" type="text" class="text-input js-input">
 
-  <label class="mode-toggle">
-    <input type="checkbox" name="mode" class="js-mode"/>
-    <div>
-      <span class="on">Decode</span>
-      <span class="off">Encode</span>
+  <div class="controls">
+    <div class="control-section">
+      <input name="input" type="text" class="text-input js-input" placeholder="Message">
+
+      <label class="mode-toggle">
+        <input type="checkbox" name="mode" class="js-mode"/>
+        <div>
+          <span class="on">Decode</span>
+          <span class="off">Encode</span>
+        </div>
+        <i></i>
+      </label>
+      <button class="submit-trigger js-submit" disabled>Submit</button>
     </div>
-    <i></i>
-  </label>
 
-  <div class="js-rotors rotor-box">
-    <h4 class="box-heading">Rotors</h4>
+    <details class="js-rotors control-section">
+      <summary><h4 class="box-heading">Rotors</h4></summary>
+    </details>
   </div>
-
-  <button class="submit-trigger js-submit" disabled>Submit</button>
 </div>
 
 <div class="section-wrapper">

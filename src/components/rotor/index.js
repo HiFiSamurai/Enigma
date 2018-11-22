@@ -26,7 +26,7 @@ class Rotor extends View {
 
   updateGear() {
     this.style.setProperty('--start', `${this.sliderScale('start') * 270}deg`);
-    this.style.setProperty('--ratio', this.sliderScale('ratio'));
+    this.style.setProperty('--ratio', Math.sqrt(this.sliderScale('ratio') * 0.9 + 0.1));
   }
 
   sliderScale(name) {

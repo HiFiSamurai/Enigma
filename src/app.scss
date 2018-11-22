@@ -7,25 +7,47 @@
 
 enigma-app {
   display: block;
-
-  @include media(tablet) {
-    display: flex;
-  }
 }
 
 .section-wrapper {
   padding: $mediumSpacing;
-  flex-grow: 1;
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.controls {
+  @include media(tablet) {
+    display: flex;
+
+    .control-section {
+      flex: 1;
+    }
+  }
+
+  .control-section {
+    padding: $mediumSpacing;
+    border: 1px solid #9E9E9E;
+    margin: 0 $smallSpacing $mediumSpacing;
+    border-radius: $borderRadius;
+    box-shadow: 1px 1px 1px 1px #9E9E9E;
+  }
 }
 
 .box-heading {
   margin-top: 0;
   margin-bottom: $smallSpacing;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .text-input {
   padding: $smallSpacing;
   border-radius: $smallSpacing;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
 }
 
 .submit-trigger {
@@ -196,8 +218,9 @@ enigma-app {
   background-color: #FFC;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   height: 10rem;
-  min-width: 400px;
+  max-width: 800px;
   padding: 0 $mediumSpacing;
+  margin: auto;
 
   .index-content {
     text-align: center;
@@ -205,12 +228,4 @@ enigma-app {
     font-size: 4rem;
     margin: 0;
   }
-}
-
-.rotor-box {
-  padding: $mediumSpacing;
-  border: 1px solid #9E9E9E;
-  margin-top: $mediumSpacing;
-  border-radius: $borderRadius;
-  box-shadow: 1px 1px 1px 1px #9E9E9E;
 }
