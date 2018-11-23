@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 @import 'helpers';
+@import '@HiFiSamurai/ui-toolkit/dist/sass/animations';
 
 * {
   font-family: 'Special Elite', cursive;
@@ -32,6 +33,17 @@ enigma-app {
     margin: 0 $smallSpacing $mediumSpacing;
     border-radius: $borderRadius;
     box-shadow: 1px 1px 1px 1px #9E9E9E;
+    background: linear-gradient(to bottom right, #D9D9D9 30%, #F9F9F9);
+
+    summary {
+      user-select: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    &[open] summary ~ * {
+      animation: fade-in $transitionNormal;
+    }
   }
 }
 
@@ -39,12 +51,11 @@ enigma-app {
   margin-top: 0;
   margin-bottom: $smallSpacing;
   display: inline-block;
-  cursor: pointer;
 }
 
 .text-input {
-  padding: $smallSpacing;
-  border-radius: $smallSpacing;
+  padding: $mediumSpacing;
+  border-radius: 5px;
   width: 100%;
   max-width: 300px;
   box-sizing: border-box;

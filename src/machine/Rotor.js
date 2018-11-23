@@ -13,15 +13,19 @@ class Rotor {
     this.position = this.start;
   }
 
+  get settings() {
+    return { ratio: this.ratio, start: this.start };
+  }
+
   encode(char) {
-    const pos = this.getIndex(char) + Math.round(this.position);
     this.step();
+    const pos = this.getIndex(char) + Math.round(this.position);
     return this.getCharacter(pos);
   }
 
   decode(char) {
-    const pos = this.getIndex(char) - Math.round(this.position);
     this.step();
+    const pos = this.getIndex(char) - Math.round(this.position);
     return this.getCharacter(pos);
   }
 

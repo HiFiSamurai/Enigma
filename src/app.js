@@ -2,7 +2,6 @@ import {View, memoize} from '@HiFiSamurai/ui-toolkit';
 import Enigma from 'src/machine/Enigma';
 import RotorComponent from 'src/components/Rotor';
 import Rotor from 'src/machine/Rotor';
-import Patch from 'src/machine/Patch';
 
 import html from './app.html';
 import './app.scss';
@@ -24,14 +23,16 @@ class App extends View {
       }, document.createDocumentFragment())
     );
 
+    this.querySelector('.js-rotors').addEventListener('change', () => {
+      this.hash = this.machine.settings;
+    });
+
     this.addEventListener('keyup', ({keyCode}) => {
+      this.trigger.toggleAttribute('disabled', this.input.value.length === 0);
+
       if (keyCode === KEYCODES.ENTER) {
         this.trigger.click();
       }
-    });
-
-    this.input.addEventListener('keyup', ({target}) => {
-      this.trigger.toggleAttribute('disabled', target.value.length === 0);
     });
 
     this.trigger.addEventListener('click', () => {
@@ -43,17 +44,7 @@ class App extends View {
   @memoize
   get machine() {
     return new Enigma({
-      rotors: [
-        new Rotor({ ratio: 2.25, start: 3 }),
-        new Rotor({ ratio: 3.1, start: 1 }),
-        new Rotor({ ratio: 4.737, start: 4 }),
-      ],
-      patches: [
-        new Patch({ entry: 'a', exit: 'f' }),
-        new Patch({ entry: 'j', exit: 'd' }),
-        new Patch({ entry: 'g', exit: 's' }),
-        new Patch({ entry: 'w', exit: 'q' }),
-      ],
+      rotors: this.hash.rotors.map((settings) => new Rotor(settings)),
     });
   }
 
@@ -70,6 +61,24 @@ class App extends View {
 
   get trigger() {
     return this.querySelector('.js-submit');
+  }
+
+  get hash() {
+    try {
+      return JSON.parse(atob(window.location.hash.replace(/^#/, '')));
+    } catch { // Return default settings when empty/invalid hash supplied
+      return {
+        rotors: [
+          { ratio: 2.25, start: 3 },
+          { ratio: 3.1, start: 1 },
+          { ratio: 4.737, start: 4 },
+        ],
+      };
+    }
+  }
+
+  set hash(settings) {
+    window.location.hash = `#${btoa(JSON.stringify(settings))}`;
   }
 }
 

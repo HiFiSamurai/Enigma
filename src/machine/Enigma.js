@@ -8,6 +8,13 @@ class Enigma {
     this.rotors.forEach((rotor) => { rotor.reset(); });
   }
 
+  get settings() {
+    return {
+      rotors: this.rotors.map((rotor) => rotor.settings),
+      patches: this.patches.map((patch) => patch.settings),
+    };
+  }
+
   encode(str) {
     this.reset();
     return Array.from(str).map((char) => this.encodeChar(char)).join('');

@@ -14,6 +14,10 @@ class Patch {
       return char;
     }
   }
+
+  get settings() {
+    return { entry: this.entry, exit: this.exit };
+  }
 }
 
 export default Patch;

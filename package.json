@@ -20,7 +20,6 @@
     "server": "node scripts/server.js",
     "release": "npm run clean && npm run webpack && node ./scripts/release.js"
   },
-  "license": "ISC",
   "devDependencies": {
     "@HiFiSamurai/ui-toolkit": "HiFiSamurai/ui-toolkit#v1.4.0",
     "@babel/core": "^7.1.5",
