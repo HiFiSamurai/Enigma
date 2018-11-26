@@ -1,7 +1,7 @@
 import {View, memoize} from '@HiFiSamurai/ui-toolkit';
 import Enigma from 'src/machine/Enigma';
-import RotorComponent from 'src/components/Rotor';
 import Rotor from 'src/machine/Rotor';
+import RotorComponent from 'src/components/Rotor';
 
 import html from './app.html';
 import './app.scss';
@@ -16,12 +16,11 @@ class App extends View {
   static html = html;
 
   connectedCallback() {
-    this.querySelector('.js-rotors').appendChild(
-      this.machine.rotors.reduce((frag, rotor) => {
-        frag.appendChild(new RotorComponent({ rotor }));
-        return frag;
-      }, document.createDocumentFragment())
-    );
+    const frag = document.createDocumentFragment();
+    for (const rotor of this.machine.rotors) {
+      frag.appendChild(new RotorComponent({ rotor }));
+    }
+    this.querySelector('.js-rotors').appendChild(frag);
 
     this.querySelector('.js-rotors').addEventListener('change', () => {
       this.hash = this.machine.settings;
