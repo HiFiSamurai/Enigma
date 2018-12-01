@@ -30,7 +30,7 @@ class Rotor {
   }
 
   step() {
-    this.position += this.ratio;
+    this.position = (this.position + this.ratio) % CHAR_MAP.length;
   }
 
   getIndex(char) {

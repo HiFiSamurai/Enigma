@@ -21,7 +21,9 @@ class Enigma {
   }
 
   encodeChar(char) {
-    return this.rotors.reduce((result, rotor) => rotor.encode(result), this.patchboard(char));
+    let value = this.rotors.reduce((result, rotor) => rotor.encode(result), char);
+    value = this.patchboard(value);
+    return this.rotors.reverse().reduce((result, rotor) => rotor.encode(result), value);
   }
 
   decode(str) {
@@ -30,7 +32,9 @@ class Enigma {
   }
 
   decodeChar(char) {
-    return this.patchboard(this.rotors.reduce((result, rotor) => rotor.decode(result), char));
+    let value = this.rotors.reduce((result, rotor) => rotor.decode(result), char);
+    value = this.patchboard(value);
+    return this.rotors.reverse().reduce((result, rotor) => rotor.decode(result), value);
   }
 
   patchboard(char) {

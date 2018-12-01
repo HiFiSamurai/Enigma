@@ -54,39 +54,17 @@ enigma-app {
 }
 
 .text-input {
-  padding: $mediumSpacing;
-  border-radius: 5px;
+  padding: $largeSpacing $mediumSpacing;
   border: 1px solid #9E9E9E;
   width: 100%;
   box-sizing: border-box;
-}
-
-.submit-trigger {
-  background: linear-gradient(to bottom, #8B8C8E 20%, #F4F4F4);
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
-  border-radius: 40px;
-  height: 40px;
-  padding: 0 $largeSpacing;
-  margin-top: $mediumSpacing;
-  color: #FFF;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
-  opacity: 1;
+  background-image: linear-gradient(180deg, #FFC calc(1rem + 8px), #F0A4A4 calc(1rem), #F0A4A4 calc(2rem + -6px), transparent 1px), repeating-linear-gradient(0deg, transparent, transparent 1rem, #DDD 1px, #DDD calc(1rem + 1px));
+  background-color: #FFC;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  height: 10rem;
+  margin: auto;
   outline: none;
-  border: none;
-  cursor: pointer;
-  transition-property: box-shadow, transform, opacity;
-  transition-delay: $transitionSubtle;
-
-  &:active {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.7);
-    transform: translateY(2px);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-  }
+  resize: none;
 }
 
 .mode-toggle {
@@ -221,22 +199,5 @@ enigma-app {
 
   .off {
     right: 15px;
-  }
-}
-
-.index-card {
-  background-image: linear-gradient(180deg, #FFC calc(1rem + 8px), #F0A4A4 calc(1rem), #F0A4A4 calc(2rem + -6px), transparent 1px), repeating-linear-gradient(0deg, transparent, transparent 1rem, #DDD 1px, #DDD calc(1rem + 1px));
-  background-color: #FFC;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-  height: 10rem;
-  max-width: 800px;
-  padding: 0 $mediumSpacing;
-  margin: auto;
-
-  .index-content {
-    text-align: center;
-    padding-top: 3rem;
-    font-size: 4rem;
-    margin: 0;
   }
 }

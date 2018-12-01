@@ -26,17 +26,16 @@ class App extends View {
       this.hash = this.machine.settings;
     });
 
-    this.addEventListener('keyup', ({keyCode}) => {
-      this.trigger.toggleAttribute('disabled', this.input.value.length === 0);
-
-      if (keyCode === KEYCODES.ENTER) {
-        this.trigger.click();
+    this.input.addEventListener('keypress', (event) => {
+      if (event.keyCode === KEYCODES.ENTER) {
+        this.mode.click();
+        event.preventDefault();
       }
     });
 
-    this.trigger.addEventListener('click', () => {
+    this.mode.addEventListener('change', () => {
       const {mode, input} = this.settings;
-      this.querySelector('.js-output').textContent = this.machine[mode](input);
+      this.input.value = this.machine[mode](input);
     });
   }
 
@@ -58,13 +57,18 @@ class App extends View {
     return this.querySelector('.js-input');
   }
 
-  get trigger() {
-    return this.querySelector('.js-submit');
+  get mode() {
+    return this.querySelector('.js-mode');
   }
 
   get hash() {
     try {
-      return JSON.parse(atob(window.location.hash.replace(/^#/, '')));
+      const { r } = JSON.parse(atob(window.location.hash.replace(/^#/, '')));
+      return {
+        rotors: r.map(({ r, s }) => {
+          return { ratio: r, start: s };
+        }),
+      };
     } catch { // Return default settings when empty/invalid hash supplied
       return {
         rotors: [
@@ -76,8 +80,13 @@ class App extends View {
     }
   }
 
-  set hash(settings) {
-    window.location.hash = `#${btoa(JSON.stringify(settings))}`;
+  set hash({ rotors }) {
+    const compressed = {
+      r: rotors.map(({ratio, start}) => {
+        return { r: ratio, s: start };
+      }),
+    };
+    window.location.hash = `#${btoa(JSON.stringify(compressed))}`;
   }
 }
 
