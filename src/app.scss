@@ -67,6 +67,19 @@ enigma-app {
   resize: none;
 }
 
+.trigger-box {
+  @include media(tablet) {
+    > * {
+      display: inline-block !important;
+      vertical-align: middle;
+
+      + * {
+        margin-left: $mediumSpacing;
+      }
+    }
+  }
+}
+
 .mode-toggle {
   display: block;
   width: 125px;
@@ -100,7 +113,6 @@ enigma-app {
   }
 
   div {
-    display: block;
     width: calc(100% - 10px);
     height: calc(100% - 10px);
     position: absolute;
@@ -199,5 +211,33 @@ enigma-app {
 
   .off {
     right: 15px;
+  }
+}
+
+.trigger {
+  background: linear-gradient(to bottom, #8B8C8E 20%, #F4F4F4);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+  border-radius: 40px;
+  height: 40px;
+  padding: 0 $largeSpacing;
+  margin-top: $mediumSpacing;
+  color: #FFF;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+  opacity: 1;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition-property: box-shadow, transform, opacity;
+  transition-delay: $transitionSubtle;
+
+  &:active {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.7);
+    transform: translateY(2px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
   }
 }

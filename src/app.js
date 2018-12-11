@@ -33,6 +33,15 @@ class App extends View {
       }
     });
 
+    this.input.addEventListener('keyup', () => {
+      this.clear.toggleAttribute('disabled', this.input.value.length === 0);
+    });
+
+    this.clear.addEventListener('click', () => {
+      this.input.value = '';
+      this.clear.toggleAttribute('disabled', true);
+    });
+
     this.mode.addEventListener('change', () => {
       const {mode, input} = this.settings;
       this.input.value = this.machine[mode](input);
@@ -59,6 +68,10 @@ class App extends View {
 
   get mode() {
     return this.querySelector('.js-mode');
+  }
+
+  get clear() {
+    return this.querySelector('.js-clear');
   }
 
   get hash() {

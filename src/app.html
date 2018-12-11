@@ -5,14 +5,17 @@
     <div class="control-section">
       <textarea name="input" class="text-input index-card js-input" placeholder="Message" rows=10></textarea>
 
-      <label class="mode-toggle">
-        <input type="checkbox" name="mode" class="js-mode"/>
-        <div>
-          <span class="on">Decode</span>
-          <span class="off">Encode</span>
-        </div>
-        <i></i>
-      </label>
+      <div class="trigger-box">
+        <label class="mode-toggle">
+          <input type="checkbox" name="mode" class="js-mode"/>
+          <div>
+            <span class="on">Decode</span>
+            <span class="off">Encode</span>
+          </div>
+          <i></i>
+        </label>
+        <button class="trigger js-clear" disabled>Clear</button>
+      </div>
     </div>
 
     <details class="js-rotors control-section" open>
