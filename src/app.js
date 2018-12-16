@@ -1,4 +1,4 @@
-import {View, memoize} from '@HiFiSamurai/ui-toolkit';
+import { View, memoize } from '@HiFiSamurai/ui-toolkit';
 import Enigma from 'src/machine/Enigma';
 import Rotor from 'src/machine/Rotor';
 import RotorComponent from 'src/components/Rotor';
@@ -22,11 +22,11 @@ class App extends View {
     }
     this.querySelector('.js-rotors').appendChild(frag);
 
-    this.querySelector('.js-rotors').addEventListener('change', () => {
+    this.querySelector('.js-settings').addEventListener('change', () => {
       this.hash = this.machine.settings;
     });
 
-    this.input.addEventListener('keypress', (event) => {
+    this.input.addEventListener('keypress', event => {
       if (event.keyCode === KEYCODES.ENTER) {
         this.mode.click();
         event.preventDefault();
@@ -43,7 +43,7 @@ class App extends View {
     });
 
     this.mode.addEventListener('change', () => {
-      const {mode, input} = this.settings;
+      const { mode, input } = this.settings;
       this.input.value = this.machine[mode](input);
     });
   }
@@ -51,7 +51,7 @@ class App extends View {
   @memoize
   get machine() {
     return new Enigma({
-      rotors: this.hash.rotors.map((settings) => new Rotor(settings)),
+      rotors: this.hash.rotors.map(settings => new Rotor(settings)),
     });
   }
 
@@ -82,7 +82,8 @@ class App extends View {
           return { ratio: r, start: s };
         }),
       };
-    } catch { // Return default settings when empty/invalid hash supplied
+    } catch {
+      // Return default settings when empty/invalid hash supplied
       return {
         rotors: [
           { ratio: 2.25, start: 3 },
@@ -95,7 +96,7 @@ class App extends View {
 
   set hash({ rotors }) {
     const compressed = {
-      r: rotors.map(({ratio, start}) => {
+      r: rotors.map(({ ratio, start }) => {
         return { r: ratio, s: start };
       }),
     };

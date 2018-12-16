@@ -34,16 +34,18 @@ enigma-app {
     border-radius: $borderRadius;
     box-shadow: 1px 1px 1px 1px #9E9E9E;
     background: linear-gradient(to bottom right, #D9D9D9 30%, #F9F9F9);
+  }
+}
 
-    summary {
-      user-select: none;
-      outline: none;
-      cursor: pointer;
-    }
+.details-dropdown {
+  summary {
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+  }
 
-    &[open] summary ~ * {
-      animation: fade-in $transitionNormal;
-    }
+  &[open] summary ~ * {
+    animation: fade-in $transitionNormal;
   }
 }
 
@@ -229,7 +231,7 @@ enigma-app {
   border: none;
   cursor: pointer;
   transition-property: box-shadow, transform, opacity;
-  transition-delay: $transitionSubtle;
+  transition-duration: $transitionSubtle;
 
   &:active {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.7);
@@ -238,6 +240,6 @@ enigma-app {
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.4;
   }
 }
