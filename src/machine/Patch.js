@@ -1,10 +1,19 @@
+// @flow
+export type PatchSettings = {
+  entry: string,
+  exit: string,
+};
+
 class Patch {
-  constructor({ entry, exit }) {
+  entry: string;
+  exit: string;
+
+  constructor({ entry, exit }: PatchSettings) {
     this.entry = entry;
     this.exit = exit;
   }
 
-  route(char) {
+  route(char: string): string {
     switch (char) {
     case this.entry:
       return this.exit;
@@ -15,7 +24,7 @@ class Patch {
     }
   }
 
-  get settings() {
+  get settings(): PatchSettings {
     return { entry: this.entry, exit: this.exit };
   }
 }
