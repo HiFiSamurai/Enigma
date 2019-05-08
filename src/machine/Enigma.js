@@ -2,7 +2,7 @@
 import Rotor, { type RotorSettings } from './rotor';
 import Patch, { type PatchSettings } from './patch';
 
-type EnigmaSettings = {
+export type EnigmaSettings = {
   rotors: Rotor[],
   patches: Patch[],
 };

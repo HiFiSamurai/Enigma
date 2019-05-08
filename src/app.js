@@ -1,7 +1,8 @@
+// @flow
 import { View, memoize } from '@HiFiSamurai/ui-toolkit';
-import Enigma from 'src/machine/Enigma';
-import Rotor from 'src/machine/Rotor';
-import RotorComponent from 'src/components/Rotor';
+import Enigma from './machine/Enigma';
+import Rotor, { type RotorSettings } from './machine/Rotor';
+import RotorComponent from './components/Rotor';
 
 import html from './app.html';
 import './app.scss';
@@ -26,7 +27,7 @@ class App extends View {
       this.hash = this.machine.settings;
     });
 
-    this.input.addEventListener('keypress', event => {
+    this.input.addEventListener('keypress', (event: KeyboardEvent) => {
       if (event.keyCode === KEYCODES.ENTER) {
         this.mode.click();
         event.preventDefault();
@@ -49,32 +50,35 @@ class App extends View {
   }
 
   @memoize
-  get machine() {
+  get machine(): Enigma {
     return new Enigma({
-      rotors: this.hash.rotors.map(settings => new Rotor(settings)),
+      rotors: this.hash.rotors.map(
+        (settings: RotorSettings) => new Rotor(settings)
+      ),
+      patches: [],
     });
   }
 
-  get settings() {
+  get settings(): { input: string, mode: 'decode' | 'encode' } {
     return {
       input: this.input.value,
       mode: this.querySelector('.js-mode').checked ? 'decode' : 'encode',
     };
   }
 
-  get input() {
+  get input(): HTMLInputElement {
     return this.querySelector('.js-input');
   }
 
-  get mode() {
+  get mode(): HTMLInputElement {
     return this.querySelector('.js-mode');
   }
 
-  get clear() {
+  get clear(): HTMLButtonElement {
     return this.querySelector('.js-clear');
   }
 
-  get hash() {
+  get hash(): { rotors: RotorSettings[] } {
     try {
       const { r } = JSON.parse(atob(window.location.hash.replace(/^#/, '')));
       return {
@@ -94,7 +98,7 @@ class App extends View {
     }
   }
 
-  set hash({ rotors }) {
+  set hash({ rotors }: { rotors: RotorSettings[] }) {
     const compressed = {
       r: rotors.map(({ ratio, start }) => {
         return { r: ratio, s: start };
