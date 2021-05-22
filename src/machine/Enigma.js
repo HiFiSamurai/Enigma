@@ -1,6 +1,6 @@
 // @flow
-import Rotor, { type RotorSettings } from './rotor';
-import Patch, { type PatchSettings } from './patch';
+import Rotor, { type RotorSettings } from './Rotor';
+import Patch, { type PatchSettings } from './Patch';
 
 export type EnigmaSettings = {
   rotors: Rotor[],

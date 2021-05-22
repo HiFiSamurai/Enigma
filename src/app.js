@@ -2,7 +2,7 @@
 import { View, memoize } from '@HiFiSamurai/ui-toolkit';
 import Enigma from './machine/Enigma';
 import Rotor, { type RotorSettings } from './machine/Rotor';
-import RotorComponent from './components/Rotor';
+import RotorComponent from './components/rotor';
 
 import html from './app.html';
 import './app.scss';
